@@ -1,0 +1,81 @@
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - find_a_facility
+  - informed_location
+  - workflowa_action
+  - informed_wfentities
+  - bake_roti
+    # triggers: "respond_bake_roti"
+  
+
+entities:
+  - facility_type
+  - location
+  - wf_action
+  - wf_entity
+
+slots:
+  location:
+    type: text
+  facility_type:
+    type: text
+  address:
+    type: unfeaturized
+  wf_action:
+    type: text
+  wf_entity:
+    type: text
+
+actions:
+- action_ssa_helper
+- utter_greet
+- utter_what_Can_I_Do
+- utter_Wf_Action
+- utter_did_that_help
+- utter_happy
+- utter_goodbye
+- utter_iamabot
+- utter_ask_action
+- respond_bake_roti
+
+
+
+templates:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_what_Can_I_Do:
+  - text: "How may i Assist you in SSA?"
+
+  utter_Wf_Action:
+  - text: "Here are the SSA Wiki links."
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_ask_action:
+  - text: "What do you want to do with {wf_entity}?"
+  
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
